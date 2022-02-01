@@ -1,9 +1,8 @@
 import React,{useState} from "react";
 
 import SearchArea from "./SearchArea";
-import axios from "axios";
 import request from "superagent";
-
+import BookList from "./BookList";
 
 function Books (){
 const [state, setState] = useState({
@@ -17,7 +16,8 @@ const searchBook = (e)=>{
     .get("https://www.googleapis.com/books/v1/volumes")
     .query({q: state.searchfield})
     .then((data)=>{
-        console.log(data)
+        console.log(data);
+        setState({...state,books:[...data.body.items]})
     })
     
 }
@@ -30,6 +30,7 @@ const handleSearch=(e)=>{
     return(
         <div>
             <SearchArea searchBook={searchBook} handleSearch={handleSearch}/>
+            <BookList books={state.books}/>
         </div>
     )
 }
