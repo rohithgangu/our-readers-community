@@ -3,7 +3,7 @@ import Header from '../components/Header';
 import Books from '../components/Books';
 function Home(){
     return(
-        <div>
+        <div className="home">
             <Header/>
             <Books/>
         </div>
