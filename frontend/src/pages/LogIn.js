@@ -1,15 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 function LogIn(){
-    const register = async ()=>{
-
-    }
-    const login = async ()=>{
-
-    }
-    const logout = async ()=>{
-
-    }
+    
     return(
         <div>
             <form action="">

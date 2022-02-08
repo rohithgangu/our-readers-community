@@ -1,22 +1,17 @@
 import Home from './pages/Home'
 import './App.css';
 import SignUp from './pages/SignUp';
-import auth from './firebase'
 import {
-  BrowserRouter,
   Routes,
-  Route
+  Route,
 } from "react-router-dom";
-import {
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  onAuthStateChanged,
-  signOut,
-} from "firebase/auth";
+
 import LogIn from './pages/LogIn';
+import { AuthProvider } from './context/AuthContext';
+
 function App() {
 
-  const [registerEmail, setRegisterEmail] = useState("");
+  /* const [registerEmail, setRegisterEmail] = useState("");
   const [registerPassword, setRegisterPassword] = useState("");
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
@@ -55,10 +50,11 @@ function App() {
 
   const logout = async () => {
     await signOut(auth);
-  };
+  }; */
 
 
   return (
+    <AuthProvider>
     <div className="App">
       <Routes>
       <Route exact path="/" element={<Home/>}/>
@@ -67,6 +63,7 @@ function App() {
 
       </Routes>
     </div>
+    </AuthProvider>
   );
 }
 

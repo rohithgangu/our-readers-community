@@ -5,10 +5,12 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import {BrowserRouter} from "react-router-dom";
-
+import { AuthProvider }  from "../src/context/AuthContext"
 ReactDOM.render(
   <BrowserRouter>
+  <AuthProvider>
     <App />
+    </AuthProvider>
   </BrowserRouter>,
   document.getElementById('root')
 );
