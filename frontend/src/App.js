@@ -4,11 +4,11 @@ import SignUp from './pages/SignUp';
 import {
   Routes,
   Route,
+  Navigate
 } from "react-router-dom";
-
 import LogIn from './pages/LogIn';
-import { AuthProvider } from './context/AuthContext';
-
+import { useAuth,AuthProvider } from './context/AuthContext';
+import PrivateHome from './pages/PrivateHome';
 function App() {
 
   /* const [registerEmail, setRegisterEmail] = useState("");
@@ -58,13 +58,22 @@ function App() {
     <div className="App">
       <Routes>
       <Route exact path="/" element={<Home/>}/>
-      <Route exact path="/LogIn" element={<LogIn/>}/>
-      <Route exact path="/SignUp" element={<SignUp/>}/>
-
+      <Route path="/LogIn" element={<LogIn/>}/>
+      <Route path="/SignUp" element={<SignUp/>}/>
+      <Route path="/PrivateHome" element={
+        <PrivateRoute>
+                    <PrivateHome/>
+        </PrivateRoute>
+      }/>
       </Routes>
     </div>
     </AuthProvider>
   );
+}
+
+function PrivateRoute({children}){
+  const currentUser= useAuth()
+  return currentUser ? children : <Navigate to="/login" />;  
 }
 
 export default App;
