@@ -27,10 +27,10 @@ function LogIn(){
 
     return(
         <div>
-            <form action="" onSubmit={handleSubmit}>
-                <input type="text" placeholder="enter email id" ref={emailRef} />
-                <input type="password" placeholder="create a new password" ref={passwordRef} />
-                <button type="submit" disabled={loading} >log in</button>
+            <form action="" onSubmit={handleSubmit} className="loginform">
+                <input type="text" placeholder="enter email id" ref={emailRef} className=""/>
+                <input type="password" placeholder="create a new password" ref={passwordRef} className="" />
+                <button type="submit" disabled={loading} className="" >log in</button>
             </form>
             <p>new user?</p>
             <Link to={"/SignUp"}>sign up</Link>

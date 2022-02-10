@@ -9,6 +9,7 @@ import {
 import LogIn from './pages/LogIn';
 import { useAuth,AuthProvider } from './context/AuthContext';
 import PrivateHome from './pages/PrivateHome';
+import PrivateRoute from './components/privateRoute';
 function App() {
 
   /* const [registerEmail, setRegisterEmail] = useState("");
@@ -69,11 +70,6 @@ function App() {
     </div>
     </AuthProvider>
   );
-}
-
-function PrivateRoute({children}){
-  const currentUser= useAuth()
-  return currentUser ? children : <Navigate to="/login" />;  
 }
 
 export default App;

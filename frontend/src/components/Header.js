@@ -19,7 +19,8 @@ function Header(){
         <header>
             <i className="fas fa-book fa-2x"></i>
             <h1>our readers community</h1>
-         {/*    <p>Email:</p>{currentUser.email} */}
+{/*             <p>Email:</p>{currentUser.email}
+ */}
             <Link to={"/LogIn"}>login</Link>
             <Link to={"/SignUp"}>sign Up</Link>
             <Link to={"/update-profile"}>Update profile</Link>
